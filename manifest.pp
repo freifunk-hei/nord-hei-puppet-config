@@ -28,7 +28,7 @@ ffnord::mesh { 'mesh_ffnord':
   , mesh_ipv6 => "fd42:eb49:c0b5:4242::ff$$/64"
   , mesh_ipv4  => "10.187.10$.$$$/17"
   , range_ipv4 => "10.187.0.0/16"
-  , mesh_mtu     => "1280"
+  , mesh_mtu     => "1312"
   , mesh_peerings    => "/root/mesh_peerings.yaml"
   
   , fastd_secret => "/root/nord-ahb-gw$$-fastd-secret.key"
