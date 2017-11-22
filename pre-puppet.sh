@@ -3,13 +3,13 @@
 # adapt IPV6 first!
 # do dpkg-reconfigure tzdata
 
-NAME="Freifunk Nord"
+NAME="Freifunk Amt Hüttener Berge"
 OPERATOR="Freifunk Nord"
 CHANGELOG="https://bug.freifunk.net/projects/ffnord-admin"
-HOST_PREFIX="nord-"
-SUBDOMAIN_PREFIX=vpn
-VPN_NUMBER=11
-DOMAIN="nord.freifunk.net"
+HOST_PREFIX="ahb-"
+SUBDOMAIN_PREFIX=gw
+VPN_NUMBER=0
+DOMAIN="ahb.freifunknord.net"
 SUDOUSERNAME="debian"
 TLD=ffnord
 
@@ -22,7 +22,7 @@ apt-get update && apt-get dist-upgrade && apt-get upgrade
 #MOTD setzen
 rm /etc/motd
 echo "*********************************************************" >>/etc/motd
-echo " $NAME - Gateway $SUBDOMAIN_PREFIX$VPN_NUMBER $NAME " >>/etc/motd
+echo " $NAME - Gateway $VPN_NUMBER.$SUBDOMAIN_PREFIX.$DOMAIN $NAME " >>/etc/motd
 echo " Hoster: $OPERATOR *" >>/etc/motd
 echo "*******************************************************" >>/etc/motd
 echo " " >>/etc/motd

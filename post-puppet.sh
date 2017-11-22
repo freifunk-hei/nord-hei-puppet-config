@@ -1,14 +1,14 @@
 #!/bin/bash
 #https://github.com/ffnord/ffnord-puppet-gateway
 
-VPN_NUMBER=11
-DOMAIN=nord.freifunk.net
+VPN_NUMBER=0
+DOMAIN="ahb.freifunknord.net"
 TLD=ffnord
 IP6PREFIX=fd42:eb49:c0b5:4242
 
 # alfred fix for /bin/sh
-sed -i 's/( //;s/ )//g' /etc/ffnord
-service alfred restart
+#sed -i 's/( //;s/ )//g' /etc/ffnord
+#service alfred restart
 cd
 puppet apply --verbose $VPN_NUMBER.gateway.pp
 sed -i 's/( //;s/ )//g' /etc/ffnord
@@ -18,7 +18,7 @@ build-firewall
 
 #fastd ovh config
 cd /etc/fastd/ffnord-mvpn/
-git clone https://github.com/Freifunk-Nord/nord-gw-peers-ovh backbone
+git clone https://github.com/Freifunk-AHB/nord-ahb-gw-peers backbone
 touch /usr/local/bin/update-fastd-gw
 cat <<-EOF>> /usr/local/bin/update-fastd-gw
 #!/bin/bash
