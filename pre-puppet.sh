@@ -5,7 +5,7 @@
 
 NAME="Freifunk Amt Hüttener Berge"
 OPERATOR="Freifunk Nord"
-CHANGELOG="https://bug.freifunk.net/projects/ffnord-admin"
+CHANGELOG="https://osticket.freifunknord.de/scp/"
 HOST_PREFIX="ahb-"
 SUBDOMAIN_PREFIX=gw
 VPN_NUMBER=0
@@ -70,10 +70,8 @@ cat <<-EOF>> /root/.bashrc
   alias l='ls \$LS_OPTIONS -lA'
   alias grep="grep --color=auto"
   # let us only use aptitude on gateways
-  alias apt-get='sudo aptitude'
   alias ..="cd .."
   # set nano to (S=)smooth scrolling and (i=)autoindent (T=)2 tabs (E=)as spaces
-  alias nano='nano -S -i -T2 -E'
   # history settings
   HISTCONTROL=ignoreboth
   HISTSIZE=10000
@@ -86,19 +84,6 @@ cd /root
 echo load the ip_tables and ip_conntrack module
 modprobe ip_conntrack
 echo ip_conntrack >> /etc/modules
-
-#SSH config
-rm /etc/ssh/sshd_config
-cp /opt/nord-puppet-config/sshd_config /etc/ssh/sshd_config
-service sshd restart
-
-cat <<-EOF>> ~/.ssh/config
-Host gitlab.com
-HostName gitlab.com
-Port 22
-User root
-IdentityFile ~/.ssh/ffnord-gitlab.rsa
-EOF
 
 #online script
 touch /usr/local/bin/online
@@ -124,7 +109,6 @@ auto eth1
 allow-hotplug eth1
 iface eth1 inet dhcp
 EOF
-
 
 #USER TODO:
 echo 'now copy the files manifest.pp and mesh_peerings.yaml to /root and make sure /root/fastd_secret.key exists'

@@ -6,9 +6,6 @@ DOMAIN="ahb.freifunknord.net"
 TLD=ffnord
 IP6PREFIX=fd42:eb49:c0b5:4242
 
-# alfred fix for /bin/sh
-#sed -i 's/( //;s/ )//g' /etc/ffnord
-#service alfred restart
 cd
 puppet apply --verbose $VPN_NUMBER.gateway.pp
 sed -i 's/( //;s/ )//g' /etc/ffnord

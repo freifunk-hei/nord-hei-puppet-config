@@ -20,15 +20,15 @@ class { 'ffnord::params':
 # aus https://github.com/ffnord/site-nord/blob/master/site.conf
 # und https://github.com/freifunk/icvpn-meta/blob/master/nord
 ffnord::mesh { 'mesh_ffnord':
-    mesh_name => "Freifunk Nord"
+    mesh_name => "Freifunk Amt Hüttener Berge"
   , mesh_code => "ffnord"
   , mesh_as => "65187"
-  , mesh_mac  => "fe:ed:be:ef:ff:$$"
-  , vpn_mac  => "fe:ed:be:ff:ff:$$"
+  , mesh_mac  => "ab:ed:be:ef:ff:$$"
+  , vpn_mac  => "ab:ed:be:ff:ff:$$"
   , mesh_ipv6 => "fd42:eb49:c0b5:4242::ff$$/64"
   , mesh_ipv4  => "10.187.10$.$$$/17"
   , range_ipv4 => "10.187.0.0/16"
-  , mesh_mtu     => "1312"
+  , mesh_mtu     => "1500"
   , mesh_peerings    => "/root/mesh_peerings.yaml"
   
   , fastd_secret => "/root/nord-ahb-gw$$-fastd-secret.key"
@@ -52,7 +52,7 @@ ffnord::named::zone {
 }
 
 class {
-  ['ffnord::etckeeper','ffnord::rsyslog','ffnord::mosh','ffnord::alfred']:
+  ['ffnord::etckeeper','ffnord::rsyslog','ffnord::mosh']:
 }
 
 # Useful packages
