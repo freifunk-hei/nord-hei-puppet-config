@@ -51,7 +51,7 @@ apt-get -y remove nginx nginx-full exim mutt
 #puppet modules install
 apt-get -y install --no-install-recommends puppet
 puppet module install puppetlabs-stdlib --version 4.15.0 && \
-puppet module install puppetlabs-apt --version 1.5.1 && \
+puppet module install puppetlabs-apt --version 1.5.2 && \
 puppet module install puppetlabs-vcsrepo --version 1.3.2 && \
 puppet module install saz-sudo --version 4.1.0 && \
 puppet module install torrancew-account --version 0.1.0
@@ -98,12 +98,12 @@ chmod +x /usr/local/bin/online
 cat <<-EOF>> /etc/network/interfaces
 
 iface eth0 inet6 static
-       address 2001:41d0:401:2000::2:f0bd
+       address 2001:41d0:701:1000::26e
        netmask 128
-       post-up /sbin/ip -6 route add 2001:41d0:401:2000::1 dev eth0
-       post-up /sbin/ip -6 route add default via 2001:41d0:401:2000::1 dev eth0
-       pre-down /sbin/ip -6 route del default via 2001:41d0:401:2000::1 dev eth0
-       pre-down /sbin/ip -6 route del 2001:41d0:401:2000::1 dev eth0
+       post-up /sbin/ip -6 route add 2001:41d0:701:1000::1 dev eth0
+       post-up /sbin/ip -6 route add default via 2001:41d0:701:1000::1 dev eth0
+       pre-down /sbin/ip -6 route del default via 2001:41d0:701:1000::1 dev eth0
+       pre-down /sbin/ip -6 route del 2001:41d0:701:1000::1 dev eth0
 
 auto eth1
 allow-hotplug eth1

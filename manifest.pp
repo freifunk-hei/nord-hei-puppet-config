@@ -1,5 +1,5 @@
 class { 'ffnord::params':
-  router_id => "10.187.10$.$$$",  # The id of this router, probably the ipv4 address
+  router_id => "10.187.100.1",  # The id of this router, probably the ipv4 address
                                   # of the mesh device of the providing community
   icvpn_as => "65187",            # The as of the providing community
   wan_devices => ['eth0'],        # An array of devices which should be in the wan zone
@@ -23,21 +23,21 @@ ffnord::mesh { 'mesh_ffnord':
     mesh_name => "Freifunk Amt Hüttener Berge"
   , mesh_code => "ffnord"
   , mesh_as => "65187"
-  , mesh_mac  => "ab:ed:be:ef:ff:$$"
-  , vpn_mac  => "ab:ed:be:ff:ff:$$"
-  , mesh_ipv6 => "fd42:eb49:c0b5:4242::ff$$/64"
-  , mesh_ipv4  => "10.187.10$.$$$/17"
+  , mesh_mac  => "ab:ed:be:ef:ff:00"
+  , vpn_mac  => "ab:ed:be:ff:ff:00"
+  , mesh_ipv6 => "fd42:eb49:c0b5:4242::ff00/64"
+  , mesh_ipv4  => "10.187.100.1/17"
   , range_ipv4 => "10.187.0.0/16"
   , mesh_mtu     => "1500"
-  , mesh_peerings    => "/root/mesh_peerings.yaml"
+  , mesh_peerings    => "/opt/nord-ahb-puppet-config/mesh_peerings.yaml"
   
-  , fastd_secret => "/root/nord-ahb-gw$$-fastd-secret.key"
+  , fastd_secret => "/root/nord-ahb-gw00-fastd-secret.key"
   , fastd_port   => 10050
   , fastd_peers_git => 'https://github.com/Freifunk-AHB/nord-ahb-gw-peers.git'
   , fastd_verify=> 'true'                               # set this to 'true' to accept all fastd keys without verification
   
-  , dhcp_ranges => ['10.187.10$.2 10.187.10$.254'] 
-  , dns_servers => ['10.187.10$.$$$']               # should be the same as $router_id
+  , dhcp_ranges => ['10.187.100.2 10.187.102.254'] 
+  , dns_servers => ['10.187.100.1']               # should be the same as $router_id
 }
 
 class {'ffnord::vpn::provider::hideio':
