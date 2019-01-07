@@ -2,7 +2,7 @@
 #https://github.com/ffnord/ffnord-puppet-gateway
 
 VPN_NUMBER=0
-DOMAIN="ahb.freifunknord.net"
+DOMAIN="steinburg.freifunknord.net"
 TLD=ffnord
 IP6PREFIX=fd42:eb49:c0b5:4242
 
@@ -12,16 +12,16 @@ sed -i 's/( //;s/ )//g' /etc/ffnord
 build-firewall
 
 #fastd ovh config
-cd /etc/fastd/ffnord-mvpn/
-git clone https://github.com/Freifunk-AHB/nord-ahb-gw-peers backbone
-touch /usr/local/bin/update-fastd-gw
-cat <<-EOF>> /usr/local/bin/update-fastd-gw
-#!/bin/bash
-
-cd /etc/fastd/ffnord-mvpn/backbone
-git pull -q
-EOF
-chmod +x /usr/local/bin/update-fastd-gw
+#cd /etc/fastd/ffnord-mvpn/
+#git clone https://github.com/Freifunk-AHB/nord-ahb-gw-peers backbone
+#touch /usr/local/bin/update-fastd-gw
+#cat <<-EOF>> /usr/local/bin/update-fastd-gw
+##!/bin/bash
+#
+#cd /etc/fastd/ffnord-mvpn/backbone
+#git pull -q
+#EOF
+#chmod +x /usr/local/bin/update-fastd-gw
 
 # check if everything is running:
 check-services

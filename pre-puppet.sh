@@ -3,13 +3,13 @@
 # adapt IPV6 first!
 # do dpkg-reconfigure tzdata
 
-NAME="Freifunk Amt Hüttener Berge"
+NAME="Freifunk Kreis Steinburg"
 OPERATOR="Freifunk Nord"
 CHANGELOG="https://osticket.freifunknord.de/scp/"
-HOST_PREFIX="ahb-"
+HOST_PREFIX="iz-"
 SUBDOMAIN_PREFIX=gw
 VPN_NUMBER=0
-DOMAIN="ahb.freifunknord.net"
+DOMAIN="steinburg.freifunknord.net"
 SUDOUSERNAME="debian"
 TLD=ffnord
 
@@ -98,7 +98,7 @@ chmod +x /usr/local/bin/online
 cat <<-EOF>> /etc/network/interfaces
 
 iface eth0 inet6 static
-       address 2001:41d0:701:1000::26e
+       address 2001:41d0:701:1000::5a7
        netmask 128
        post-up /sbin/ip -6 route add 2001:41d0:701:1000::1 dev eth0
        post-up /sbin/ip -6 route add default via 2001:41d0:701:1000::1 dev eth0

@@ -20,20 +20,20 @@ class { 'ffnord::params':
 # aus https://github.com/ffnord/site-nord/blob/master/site.conf
 # und https://github.com/freifunk/icvpn-meta/blob/master/nord
 ffnord::mesh { 'mesh_ffnord':
-    mesh_name => "Freifunk Amt Hüttener Berge"
+    mesh_name => "Freifunk Kreis Steinburg"
   , mesh_code => "ffnord"
   , mesh_as => "65187"
   , mesh_mac  => "ab:ed:be:ef:ff:00"
   , vpn_mac  => "ab:ed:be:ff:ff:00"
-  , mesh_ipv6 => "fd42:eb49:c0b5:4242::ff00/64"
+  , mesh_ipv6 => "fd42:eb49:c0b5:4242::fc00/64"
   , mesh_ipv4  => "10.187.100.1/17"
   , range_ipv4 => "10.187.0.0/16"
   , mesh_mtu     => "1500"
-  , mesh_peerings    => "/opt/nord-ahb-puppet-config/mesh_peerings.yaml"
+  , mesh_peerings    => "/opt/nord-iz-puppet-config/mesh_peerings.yaml"
   
-  , fastd_secret => "/root/nord-ahb-gw00-fastd-secret.key"
+  , fastd_secret => "/root/nord-iz-gw00-fastd-secret.key"
   , fastd_port   => 10050
-  , fastd_peers_git => 'https://github.com/Freifunk-AHB/nord-ahb-gw-peers.git'
+  , fastd_peers_git => 'https://github.com/Freifunk-IZ/nord-iz-gw-peers.git'
   , fastd_verify=> 'true'                               # set this to 'true' to accept all fastd keys without verification
   
   , dhcp_ranges => ['10.187.100.2 10.187.102.254'] 
@@ -48,7 +48,7 @@ class {'ffnord::vpn::provider::hideio':
 }
 
 ffnord::named::zone {
-  "nord": zone_git => "https://github.com/Freifunk-AHB/nord-ahb-zone.git", exclude_meta => 'nord';
+  "nord": zone_git => "https://github.com/Freifunk-IZ/nord-iz-zone.git", exclude_meta => 'nord';
 }
 
 class {
