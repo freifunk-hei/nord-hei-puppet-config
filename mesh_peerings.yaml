@@ -1,3 +1,6 @@
 nord-iz-gw0:
   ipv4: "10.187.100.1"
   ipv6: "fd42:eb49:c0b5:4242::fc00"
+nord-iz-gw1:
+  ipv4: "10.187.103.1"
+  ipv6: "fd42:eb49:c0b5:4242::fc01"

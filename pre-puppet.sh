@@ -8,7 +8,7 @@ OPERATOR="Freifunk Nord"
 CHANGELOG="https://osticket.freifunknord.de/scp/"
 HOST_PREFIX="iz-"
 SUBDOMAIN_PREFIX=gw
-VPN_NUMBER=0
+VPN_NUMBER=1
 DOMAIN="steinburg.freifunknord.net"
 SUDOUSERNAME="debian"
 TLD=ffnord
@@ -31,13 +31,6 @@ echo " $CHANGELOG " >>/etc/motd
 echo " *" >>/etc/motd
 echo " Happy Hacking! *" >>/etc/motd
 echo "**********************************************************" >>/etc/motd
-
-#Hostname setzen
-hostname $HOST_PREFIX$VPN_NUMBER
-#echo "127.0.1.1 $SUBDOMAIN_PREFIX$VPN_NUMBER.$DOMAIN $HOST_PREFIX$VPN_NUMBER" >>/etc/hosts
-rm /etc/hostname
-touch /etc/hostname
-echo "$HOST_PREFIX$VPN_NUMBER" >>/etc/hostname
 
 # install needed packages
 apt-get -y install sudo apt-transport-https git nload
@@ -93,22 +86,6 @@ cat <<-EOF>> /usr/local/bin/online
 maintenance off && service ntp start && batctl -m bat-ffnord gw server 100000/100000 && check-services
 EOF
 chmod +x /usr/local/bin/online
-
-#OVH network config
-cat <<-EOF>> /etc/network/interfaces
-
-iface eth0 inet6 static
-       address 2001:41d0:701:1000::5a7
-       netmask 128
-       post-up /sbin/ip -6 route add 2001:41d0:701:1000::1 dev eth0
-       post-up /sbin/ip -6 route add default via 2001:41d0:701:1000::1 dev eth0
-       pre-down /sbin/ip -6 route del default via 2001:41d0:701:1000::1 dev eth0
-       pre-down /sbin/ip -6 route del 2001:41d0:701:1000::1 dev eth0
-
-auto eth1
-allow-hotplug eth1
-iface eth1 inet dhcp
-EOF
 
 #USER TODO:
 echo 'now copy the files manifest.pp and mesh_peerings.yaml to /root and make sure /root/fastd_secret.key exists'
