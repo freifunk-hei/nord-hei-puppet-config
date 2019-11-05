@@ -3,13 +3,13 @@
 # adapt IPV6 first!
 # do dpkg-reconfigure tzdata
 
-NAME="Freifunk Kreis Steinburg"
+NAME="Freifunk Kreis Dithmarschen"
 OPERATOR="Freifunk Nord"
 CHANGELOG="https://osticket.freifunknord.de/scp/"
-HOST_PREFIX="iz-"
+HOST_PREFIX="hei-"
 SUBDOMAIN_PREFIX=gw
-VPN_NUMBER=1
-DOMAIN="steinburg.freifunknord.net"
+VPN_NUMBER=0
+DOMAIN="dithmarschen.freifunknord.net"
 SUDOUSERNAME="debian"
 TLD=ffnord
 
