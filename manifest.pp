@@ -21,7 +21,7 @@ class { 'ffnord::params':
 # und https://github.com/freifunk/icvpn-meta/blob/master/nord
 ffnord::mesh { 'mesh_ffnord':
     mesh_name => "Freifunk Kreis Dithmarschen"
-  , mesh_code => "ffnord"
+  , mesh_code => "ffnord-he"
   , mesh_as => "65187"
   , mesh_mac  => "de:dd:be:ef:ff:00"
   , vpn_mac  => "de:dd:be:ff:ff:00"
